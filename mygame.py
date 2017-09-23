@@ -16,3 +16,23 @@ B = (0, 0, 255)
 pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("My_Game")
+clock = pygame.time.Clock()
+
+all_sprites = pygame.sprite.Group()	
+#game loop
+running = True
+while running:
+	clock.tick(FPS)
+	for event in pygame.event.get():
+		#check for closing window
+		if event.type == pygame.QUIT:
+			running = False
+	
+	# Update
+	all_sprites.update()
+	# Draw/ render
+	all_sprites.draw(screen)
+	screen.fill(BLACK)
+	pygame.dipslay.flip()
+Pygame.quit()
